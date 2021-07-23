@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>이유임</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+  <link rel="icon" href="{% static 'images/favicon.png' %}">
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+
+    body {
+            display: inline-block;
+            background: linear-gradient(90deg, #c9ffbf,#ffafbd);
+            height: 3500px;
+            font-family: 'Montserrat', sans-serif;
+            width: 173vh;
+            position: relative;
+            text-align: center;
+
+        }
+    
+    .sidenav {
+        position: fixed;
+        width: 200px;
+        height: 280px;
+        background-color: rgba(247, 85, 90, 0.7);
+        z-index: 1;
+        font-size: 1.0em;
+        top: 30%;
+        left: 2%;
+        border-radius: 20px;
+        border-left: 1px solid  rgba(255,255,255,0.3);
+        border-top: 1px solid  rgba(255,255,255,0.3);
+        backdrop-filter: blur(10px);
+        box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    }
+    .container{
+        position: relative;
+        width: 1100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 30px;
+        right: 20%;
+    }
+    .container .card{
+        position: relative;
+        max-width: 300px;
+        height: 200px;
+        background: #fff;
+        margin: 30px 10px;
+        padding:  20px 15px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 5px 202px rgba(0, 0, 0, 0.5);
+        transition: 0.3s ease-in-out;
+    }
+    .container .card:hover{
+        height: 420px;
+    }
+    .container .card .imgBx{
+        position: relative;
+        width: 260px;
+        height: 200px;
+        z-index: 1;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        top: -60px;
+        left: 7px;
+    }
+    .container .card .imgBx img{
+        max-width: 100%;
+        border-radius: 4px;
+        padding: 0;
+    }
+    .container .card .content{
+        position: relative;
+        padding: 10px 15px;
+        text-align: center;
+        color: #111;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+
+    }
+    .container .card:hover .content{
+        visibility: visible;
+        opacity: 1;
+        margin-top: 0px;
+        transition-delay: 0.3s;
+    }
+    .nav {
+            position: relative;
+            text-align: center;
+            top: 40%;
+            transform: translateY(-50%);
+            font-weight: bold;
+        }
+    .nav ul {
+        list-style: none;  
+        padding: 0;
+    }
+    li {
+        position: relative;
+    }
+    li a {
+        line-height: 3em;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 0.2em;
+        color: #000000;
+        display: block;
+        transition: all ease-out 300ms;
+    }
+    a:hover{
+        color: black;
+    }    
+
+    img{
+        position: inherit;
+        left: 0;
+        width: 500px;
+        padding-bottom: 30px;
+        padding-top: 30px ;
+        }
+    .images2 img{
+            width: 377px;
+        }
+
+    #title{
+        width: 400px;
+        font-size: 2.3rem;
+        font-weight: 500;
+        color: #f7555a;
+        opacity: 0.7;
+        left: 40%;
+        position: absolute;
+    }
+    h2{
+        font-weight: 800;
+        color:  #f7555a;
+        opacity: 0.7;
+        font-size: 3.0rem;
+        margin-top: 0;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    h1{
+        font-weight: 800;
+        color:  #f7555a;
+        opacity: 0.7;
+        margin-top: 0;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        font-size: 3.3em;
+        padding-bottom: 15px;
+
+    }
+
+    .loginForm {
+        background:rgba(255,255,255,0.3);
+        padding: 3em;
+        height: 670px;
+        width: 660px;
+        border-radius: 20px;
+        border-left: 1px solid  rgba(255,255,255,0.3);
+        border-top: 1px solid  rgba(255,255,255,0.3);
+        backdrop-filter: blur(10px);
+        box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+        text-align: center;
+        position: absolute;
+        left: 45%;
+        /* margin-top: -300px; */
+        margin-left: -300px;
+    }
+
+    p, table{
+        font-weight: 500;
+        color: rgb(0, 0, 0);
+        opacity: 0.7;
+        font-size: 1.5rem;
+        margin-top: 0;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    th, td{
+        padding: 8px;
+    }
+    label, input{
+        font-size: 1.3em;
+    }
+    #btn1{
+        background: transparent;
+        width: 200px;
+        padding: 1em;
+        margin-bottom: 2em;
+        border: none;
+        border-left: 1px solid rgba(255,255,255,0.3);
+        border-top: 1px solid rgba(255,255,255,0.3);
+        border-radius: 5000px;
+        backdrop-filter: blur(5px);
+        box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+        color: rgb(0, 0, 0);
+        font-family: Montserrat, sans-serif;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    ::placeholder, label {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        color: rgb(0, 0, 0);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+    .box {
+            position: relative;
+        }
+
+    .box .square {
+        position: absolute;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.5);
+        border-right: 1px solid rgba(255,255,255,0.2);
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.1);
+        border-radius: 20px;
+        animation: animate 10s linear infinite;
+        animation-delay: calc(-1s * var(--i));
+    }
+    .para{
+        text-align:left;
+    }
+
+    @keyframes animate {
+        0%, 100%
+        {
+            transform: translateY(-30px);
+        }
+        50%
+        {
+            transform: translateY(30px);
+        }
+    }
+
+    .box .square:nth-child(1) {
+        top: -40px;
+        right: -5%;
+        width: 130px;
+        height: 130px;
+    }
+    .box .square:nth-child(2) {
+        top:250px;
+        left:-5%;
+        width: 150px;
+        height:150px;
+        z-index: 2;
+    }
+    .box .square:nth-child(3) {
+        top:400px;
+        right:-2%;
+        width: 120px;
+        height:120px;
+        z-index: 2;
+    }
+    .box .square:nth-child(4) {
+        bottom:50%;
+        left:40%;
+        width: 100px;
+        height:100px;
+    }
+    .box .square:nth-child(5) {
+        top:700px;
+        left:25%;
+        width: 85px;
+        height:85px;
+    }
+
+
+  </style>
+  <script>
+    function formResult(){
+        var ageResult = document.loginForm.age.value;
+        var detsResult = document.loginForm.dets.value;
+        if(ageResult == 'child'){
+            if(detsResult == 'basic'){
+                window.location.href = 'childBasic'
+            }
+            else window.location.href='child'
+        }else if(ageResult == 'adult'){
+            if(detsResult == 'basic'){
+                window.location.href = 'adultBasic'
+            }
+            else window.location.href='adult'
+        }else if(ageResult == 'senior'){
+            if(detsResult == 'basic'){
+                window.location.href = 'seniorBasic'
+            }
+            else window.location.href='senior'
+        }
+    }
+</script>
+</head>
+<body>
+
+<div class="container-fluid">
+<div id="home"><br><br><br><br><br><br></div>
+  <div class="row content">
+    <div class="col-sm-3">
+        <div class="sidenav">
+        <ul class="nav nav-pills nav-stacked">
+            <li style="margin-top: 27%;"><a href="#home">홈</a></li>
+            <li><a href="#graphs">그래프</a></li>
+            <li><a href="#predict">내 몸 알아보기</a></li>
+            <li><a href="https://agitated-tesla-6f47a6.netlify.app">운동하러 가기</a></li>
+        </ul>
+        </div>
+    </div>
+    
+
+    <div class="col-sm-1"></div>
+    <div class="col-sm-8">
+        <div class="container1">
+            <h1 style="padding-bottom: 30px;">우리 몸에 대해 알아보아요</h1><br>
+            <div class="container">
+
+            <div class="card">
+                <div class="imgBx">
+                    <img src="{% static 'images/favired.png' %}">
+                </div>
+                <div class="content">
+                    <p class="para">저희는 (성공할 수 밖에 없는) 이유임입니다!!!<br><br>
+                        이유임은 코리아IT 아카데미에서 파이널 프로젝트를 위해 만났습니다.<br>
+                        팀원들의 이름에서 성을 따와서 팀명을 [이유임]이라 정했습니다.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imgBx">
+                    <img src="{% static 'images/fitness.jpg' %}">
+                </div>
+                <div class="content">
+                    <p class="para">비싼 체성분분석기계 없이도 체지방률을 간편하게 계산할 수 있습니다.<br>
+                        체지방률을 계산하여 자신의 비만도를 한 눈에 알아볼 수 있으며 올바른 운동 자세를 가르쳐줍니다.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imgBx">
+                    <img src="{% static 'images/menu.jpg' %}">
+                </div>
+                <div class="content">
+                    <p class="para">홈: 웹 안내문</p>
+                    <p class="para">그래프: 모델에 사용된 데이터 분석 결과와 설명</p>
+                    <p class="para">내 몸 알아보기: 체지방률 예측을 위한 질문지</p>
+                    <p class="para">운동하기: 인공지능 트레이너 웹 사이트로 이동</p>
+                </div>
+            </div>
+            
+            <!-- <p class="para" style="font-weight: 800;">우리는 이유임입니다</p> -->
+            
+            <!-- <p class="para" style="font-weight: 800;"><주제: 체지방률예측 & 인공지능 트레이너></p> -->
+            
+            <!-- <p class="para" style="font-weight: 800;"><메뉴 소개></p> -->
+        </div>
+        </div>
+
+    <br><br><br><br>
+      <hr>
+      <br><br><br><br>
+      <div class="container2" id="graphs">
+            <h1>Graphs</h1>
+
+        <div class="images1">
+            <img src="{% static 'images/bmi.png' %}">
+            <p class="para">자신의 몸상태를 알기위해 가장 많이 쓰는 방법 중 하나로 BMI가 있습니다. 이 BMI로 비만의 유무 혹은 정도를 아는 경우가 있는데 이는 적절하지 않습니다.
+                비만도를 평가할 때, 반드시 전체 체중에서 지방이 차지하는 비율인 체지방률을 같이 평가해야합니다.
+                그 결과, 여자와 남자의 BMI와 체지방률의 차이를 보시면 여자에 비해 남자의 체지방률이 낮지만 BMI는 조금 더 높아요.</p>
+        </div>
+        
+        <div class="images2">
+            <img src="{% static 'images/gender.png' %}">
+            <img src="{% static 'images/age.png' %}">
+            <p class="para">여성과 남성의 체지방률을 비교해본다면 여성의 체지방률이 더 높습니다.
+                이 자료는 2019년 1월부터 2021년 6월까지의 데이터를 기반으로 제작되었기 때문에 코로나의 영향이 없다고는 못하겠습니다.
+                </p>
+            
+        </div>
+        <div class="images3">
+            <img src="{% static 'images/age+gender.png' %}">
+            <p class="para">성별로 나눠서 연령대별로 그래프를 나타내었습니다.
+                여성 호르몬이 연령대가 높아질수록 낮아지기 때문에 체지방을 유지할려는 점이 줄어듭니다.
+                반면에 남성은 시간이 지날수록 유지하거나 체지방률이 높아지는것을 알 수 있습니다.
+                </p>
+        </div>
+        
+        
+    
+    </div>
+    <br><br><br><br>
+      <hr>
+      <br><br><br><br>
+    <div class="box">
+        <div class="square" style="--i:0;"></div>
+        <div class="square" style="--i:1;"></div>
+        <div class="square" style="--i:2;"></div>
+        <div class="square" style="--i:3;"></div>
+        <div class="square" style="--i:4;"></div>
+        <br><br>
+      <div class="container3" id="predict">
+        <form action="" method="post" class="loginForm" name="loginForm">
+          <h1>내 몸 상태 알아보기</h1>
+          <p>*  청소년: 13~18 세, 성인: 19~64 세, 노인: 65~99 세</p>
+          <br>  
+          <div class="ageForm">
+                <input type="radio" id="child" name="age" value='child'>
+                <label for="child">청소년</label>
+    
+                <input type="radio" id="adult" name="age" value='adult'>
+                <label for="adult">성인</label>
+            
+                <input type="radio" id="senior" name="age" value='senior'>
+                <label for="senior">노인</label>
+          </div>
+          <br>
+          <div class="detailsForm">
+            <input type="radio" id="basic" name="dets" value='basic'>
+            <label for="basic">기본정보</label>
+    
+            <input type="radio" id="detailed" name="dets" value='detailed'>
+            <label for="detailed">상세정보</label>
+          </div>
+    
+    
+          
+    <br>
+            <a href="#" onclick="formResult()"><input type="button" value="Submit" id='btn1'></a>
+            <p>* 기본정보: 연령/성별/키/몸무게/허리둘레</p>
+            <p>* 상세정보: 연령/성별/키/몸무게/허리둘레/3가지 운동 횟수</p>
+            <p>상세정보는 기본정보보다 더욱 정확한 체지방률을 예측할 수 있습니다.</p>
+            <table style="border-collapse: collapse;">
+                <tr>
+                    <td style="border-right: 1px black solid; border-bottom: 1px black solid;"></td>
+                    <td style="border-bottom: 1px black solid;">심폐지구력</td>
+                    <td style="border-bottom: 1px black solid;">근지구력</td>
+                    <td style="border-bottom: 1px black solid;">유연성</td>
+                </tr>
+                <tr>
+                    <td style="border-right: 1px black solid;">청소년</td>
+                    <td>20m 왕복 오래달리기</td>
+                    <td>교차윗몸일으키기</td>
+                    <td rowspan="3">앉아윗몸앞으로굽히기</td>
+                </tr>
+                <tr>
+                    <td style="border-right: 1px black solid;">성인</td>
+                    <td>20m 왕복 오래달리기</td>
+                    <td>윗몸말아올리기</td>
+                    <!-- <td>앉아윗몸앞으로굽히기</td> -->
+                </tr>
+                <tr>
+                    <td style="border-right: 1px black solid;">노인</td>
+                    <td>2분제자리걷기</td>
+                    <td>의자앉았다가 일어서기</td>
+                    <!-- <td>앉아윗몸앞으로굽히기</td> -->
+                </tr>
+            </table>
+          
+        </form>
+        
+        </div>
+        <br><br><br><br>
+        </div>
+  </div>
+</div>
+
+</body>
+</html>

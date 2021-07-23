@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+    <title>Result</title>
+    <style>
+        .container {
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+        }
+        body {
+            background: linear-gradient(90deg, #c9ffbf,#ffafbd);
+            height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .graphForm {
+            background:rgba(255,255,255,0.3);
+            padding: 3em;
+            height: 300px;
+            width: 600px;
+            border-radius: 20px;
+            border-left: 1px solid  rgba(255,255,255,0.3);
+            border-top: 1px solid  rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+            text-align: center;
+            position: relative;
+            top: 10%;
+            transition: all 0.2s ease-in-out;
+        }
+        h2{
+            
+            font-weight: 500;
+            color: #f7555a;
+            opacity: 0.7;
+            font-size: 2.7rem;
+            margin-top: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        p{
+            font-weight: 500;
+            color: #f7555a;
+            opacity: 0.7;
+            font-size: 1.5rem;
+            margin-top: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .btn {
+            background: transparent;
+            width: 200px;
+            padding: 1em;
+            margin-bottom: 2em;
+            border: none;
+            border-left: 1px solid rgba(255,255,255,0.3);
+            border-top: 1px solid rgba(255,255,255,0.3);
+            border-radius: 5000px;
+            backdrop-filter: blur(5px);
+            box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+            color: #f7555a;
+            font-family: Montserrat, sans-serif;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        @keyframes animate {
+            0%, 100%
+            {
+                transform: translateY(-30px);
+            }
+            50%
+            {
+                transform: translateY(30px);
+            }
+        }
+
+        .box .square:nth-child(1) {
+            top: -40px;
+            right: 6%;
+            width: 130px;
+            height: 130px;
+        }
+        .box .square:nth-child(2) {
+            top:250px;
+            left:-5%;
+            width: 150px;
+            height:150px;
+            z-index: 2;
+        }
+        .box .square:nth-child(3) {
+            top:400px;
+            right:0%;
+            width: 120px;
+            height:120px;
+            z-index: 2;
+        }
+        .box .square:nth-child(4) {
+            bottom:45%;
+            left:40%;
+            width: 100px;
+            height:100px;
+        }
+        .box .square:nth-child(5) {
+            top:700px;
+            left:25%;
+            width: 85px;
+            height:85px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="square" style="--i:0;"></div>
+        <div class="square" style="--i:1;"></div>
+        <div class="square" style="--i:2;"></div>
+        <div class="square" style="--i:3;"></div>
+        <div class="square" style="--i:4;"></div>
+    <div class="container">
+        <div class='graphForm'>
+            <h2>체지방률:{{predict}}</h2>
+            <div>
+                <p>{{info}}</p>      
+            </div>
+            <br>
+            <a href="https://agitated-tesla-6f47a6.netlify.app/"><input type="button" value="운동하기", class="btn"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="http://127.0.0.1:8000/"><input type="button" value="홈으로 돌아가기", class="btn"></a>
+        </div>
+    </div>
+</body>
+</html>
