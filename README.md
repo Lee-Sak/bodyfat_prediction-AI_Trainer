@@ -117,11 +117,11 @@
 - Kakao Speech API, MobaXterm
 - Google Teachable Machine
 - keras, tensorflow, numpy, pandas, sklearn, matploblib, seabron, ..
-
+- CSS, JS, HTML
 
 ## 개발 환경
 - Python, Django, Anaconda, Jupyter, Colab
-- CSS, JS, HTML
+
 
 ## 후기
 딥러닝 모델이 아닌 기존에 제공하는 머신러닝 모델(알고리즘)로 진행하여 비교해보면 좋을 것 같다.
